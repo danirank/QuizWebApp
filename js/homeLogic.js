@@ -45,19 +45,19 @@ export function saveNewQuestion() {
             answers: [
                 {
                     text: answer1Text,
-                    answer1IsCorrect: answer1IsCorrect
+                    isCorrect: answer1IsCorrect
                 },
                 {
                     text: answer2Text,
-                    answer1IsCorrect: answer2IsCorrect
+                    isCorrect: answer2IsCorrect
                 },
                 {
                     text: answer3Text,
-                    answer1IsCorrect: answer3IsCorrect
+                    isCorrect: answer3IsCorrect
                 },
                 {
                     text: answer4Text,
-                    answer1IsCorrect: answer4IsCorrect
+                    isCorrect: answer4IsCorrect
                 }
 
             ]

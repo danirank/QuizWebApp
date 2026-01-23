@@ -20,11 +20,15 @@ body {
   background-attachment: fixed;
 }
 
+#quiz-container {
+    margin-top: 10vh;
+}
+
 .question-text-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid black;
+  /* border: 2px solid black; */
     padding:1rem;
     margin: 1rem;
     
@@ -38,7 +42,7 @@ body {
   align-items: center;
   justify-content: center;
   justify-items: center;
-  border: 2px solid black;
+  /* border: 2px solid black; */
     padding:1rem;
     margin: 1rem;
 
@@ -51,7 +55,7 @@ body {
     padding: 0.5rem;
     font-size: 1rem;
     cursor: pointer;
-    border: 1px solid #000000;
+    /* border: 1px solid #000000; */
     border-radius: 1.5rem;
     color: white;
     min-height: 5rem  ;
@@ -67,7 +71,7 @@ body {
     padding: 0.5rem;
     font-size: 1rem;
     cursor: pointer;
-    border: 1px solid #000000;
+    /* border: 1px solid #000000; */
     border-radius: 1.5rem;
     color: white;
     min-height: 5rem  ;
@@ -82,7 +86,7 @@ body {
     padding: 0.5rem;
     font-size: 1rem;
     cursor: pointer;
-    border: 1px solid #000000;
+    /* border: 1px solid #000000; */
     border-radius: 1.5rem;
     color: white;
     min-height: 5rem  ;
@@ -113,7 +117,7 @@ body {
     padding: 0.5rem 1rem;
     font-size: 1rem;
     cursor: pointer;
-    border: 1px solid #000000;
+    /* border: 1px solid #000000; */
     border-radius: 1.5rem;
     color: white;
     background-color: #ff006a;
@@ -127,7 +131,7 @@ body {
     grid-template-columns: auto;
     justify-content: center;
     text-align: center;
-    border: 2px solid #000000;
+    /* border: 2px solid #000000; */
     margin: 2rem;
 }
 
@@ -136,8 +140,8 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 1rem;
-    border: 2px solid black;
+    gap: 5rem;
+    /* border: 2px solid black; */
     padding: 2rem;
     margin: 1rem;
 }
@@ -150,7 +154,7 @@ body {
     align-content: end;
     margin-top: 1rem;
     margin-bottom: 1rem;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     
 
     
@@ -169,7 +173,11 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
+    margin-top: 30vh;
+   
 }
+
+
 
 .score-container {
     text-align: center;
@@ -190,21 +198,24 @@ form {
     display: flex;
     padding: 2rem;
     margin: 2rem;
-    border: 2px solid blue;
+    /* border: 2px solid blue; */
     justify-content: center;
 }
 .form-container {
     
     padding-left: 2rem;
     padding-right: 2rem;
-    border: 2px solid black;
+    /* border: 2px solid black; */
 }
 
 #new-quiz-container {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
 }
 
 .quiz-card--info {
+    
     align-content: baseline; 
+
 }

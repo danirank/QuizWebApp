@@ -81,10 +81,11 @@ function createNewQuizButton() {
     const btnContainer = document.createElement("div");
     btnContainer.id = "new-quiz-button-container"; 
 
-    const newQuizButton = document.createElement("button"); 
+    const newQuizButton = document.createElement("a"); 
     newQuizButton.id = "new-quiz-button"; 
     newQuizButton.classList.add("btn","btn-primary","mb-3"); 
-    newQuizButton.innerText = "Skapa nytt quiz"; 
+    newQuizButton.innerText = "Skapa eget quiz"; 
+    newQuizButton.href ="#create-new-quiz"
 
     btnContainer.appendChild(newQuizButton);
 
@@ -141,25 +142,23 @@ function createNewQuizForm() {
     const buttonContainer = document.createElement("div");
     buttonContainer.classList.add("buttons-container");
 
-    const continueButton = document.createElement("button"); 
+    const continueButton = document.createElement("a"); 
     continueButton.classList.add("btn", "btn-primary", "m-2");
     continueButton.type ="button";
-
+    continueButton.href = "#new-question-form"
+    
     continueButton.innerText = "Skapa frågor"; 
     continueButton.addEventListener("click", ()=> {
-
+        
         state.newQuiz = handleCreateQuestionsClick(); //returnerar nytt quiz
         displayNewQuizInfo(state.newQuiz);
         createNewQuestion(); //Öppnar skapa fråge container 
-         
+        
     });
-
-const cancelButton = document.createElement("button"); 
-    cancelButton.classList.add("btn", "btn-primary", "m-2");
-    cancelButton.innerText = "Avbryt";
-    cancelButton.addEventListener("click", ()=> {
-        displayHomePage();
-    });
+    
+    
+    
+    const cancelButton = cancleButton();
 
    buttonContainer.appendChild(continueButton);
    buttonContainer.appendChild(cancelButton);
@@ -178,6 +177,17 @@ const cancelButton = document.createElement("button");
     parentContainer.insertAdjacentElement("afterend", newQuizContainer); 
 
 
+}
+
+function cancleButton() {
+    const cancelButton = document.createElement("button"); 
+    cancelButton.classList.add("btn", "btn-primary", "m-2");
+    cancelButton.innerText = "Avbryt";
+    cancelButton.addEventListener("click", ()=> {
+        displayHomePage();
+    });
+
+    return cancelButton;
 }
 
 function createNewQuestion (){
@@ -220,6 +230,7 @@ function createNewQuestion (){
         isCorrectLabel.classList.add("form-label"); 
 
         const isCorrectCheckbox = document.createElement("input");
+        isCorrectCheckbox.checked =false;
         isCorrectCheckbox.type = "checkbox"; 
         isCorrectCheckbox.id = `answer-${i}-check`;
         isCorrectCheckbox.classList.add("m-2");
@@ -243,6 +254,10 @@ function createNewQuestion (){
     nextButton.classList.add("btn","btn-primary", "btn-sm"); 
 
     nextButton.addEventListener("click", ()=>  {
+        console.log("checkbox 1:", document.querySelector("#answer-1-check"));
+        const el = document.querySelector("#answer-1-check");
+        console.log(el.checked); // true/false
+
         addQuestionToQuiz(state.newQuiz);
        var numQuestions = document.querySelector("#number-of-question-text");
        numQuestions.innerText = state.newQuiz.questions.length;
@@ -286,6 +301,9 @@ function displayNewQuizInfo (quiz) {
     quizImageElement.classList.add("quiz-img");
     quizImageElement.id= "new-quiz-image";
 
+    const buttonContainer = document.createElement("div");
+    buttonContainer.classList.add("btn-container");
+
     const saveNewQuizButton = document.createElement("button"); 
     saveNewQuizButton.innerText= "Spara quiz";
     saveNewQuizButton.classList.add("btn","btn-primary");
@@ -293,10 +311,11 @@ function displayNewQuizInfo (quiz) {
     saveNewQuizButton.addEventListener("click", ()=> {
         console.log("klickad")
         handleSaveNewQuizClick();
-        const newQuizContainer = document.querySelector("#new-quiz-container"); 
-        newQuizContainer.innerHTML="";
+        
         displayHomePage();
     });
+
+    const cancelButton = cancleButton();
 
     const textElement= document.createElement("h4"); 
     textElement.innerText ="Antal frågor: "; 
@@ -306,9 +325,12 @@ function displayNewQuizInfo (quiz) {
     paragraf. innerText = quizNumberOfQuestions;
 
 
+    buttonContainer.appendChild(saveNewQuizButton);
+    buttonContainer.appendChild(cancelButton);
+
     infoContainer.appendChild(quizNameHeader);
     infoContainer.appendChild(quizImageElement);
-    infoContainer.appendChild(saveNewQuizButton);
+    infoContainer.appendChild(buttonContainer);
     infoContainer.appendChild(textElement);
     infoContainer.appendChild(paragraf);
 
@@ -320,8 +342,17 @@ function displayNewQuizInfo (quiz) {
 
 export function displayHomePage() {
     
+    state.newQuiz =[];
+
+    if(document.querySelector("#new-quiz-container")){
+        const newQuizContainer = document.querySelector("#new-quiz-container"); 
+        newQuizContainer.innerHTML="";
+
+    }
     const container = document.querySelector("#quiz-container"); 
     container.innerHTML=""; 
+    
+
     container.appendChild(createHeader()); 
     container.appendChild(createQuizBody());
     container.appendChild(createNewQuizButton());
