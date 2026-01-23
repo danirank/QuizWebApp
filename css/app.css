@@ -37,7 +37,7 @@ body {
 
 .answers-container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   gap: 1rem;
   align-items: center;
   justify-content: center;
@@ -48,6 +48,8 @@ body {
 
 
 }
+
+
 
 .answer-btn {
     
@@ -62,9 +64,12 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    
+
     background-color: blue;
    
 }
+
 
 .answer-correct {
     width: 75%;
@@ -209,8 +214,8 @@ form {
 }
 
 #new-quiz-container {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: auto;
     justify-content: center;
 }
 

@@ -60,6 +60,8 @@ function quizCard(quiz) {
     playButton.innerText ="Play";
     
     playButton.addEventListener("click", () => {
+        if(document.querySelector("#new-quiz-container"))
+            document.querySelector("#new-quiz-container").innerHTML = "";
         handlePlayClick(quiz);
     });
 
@@ -90,7 +92,9 @@ function createNewQuizButton() {
     btnContainer.appendChild(newQuizButton);
 
     btnContainer.addEventListener("click", () => {
+       
         createNewQuizForm();
+         
     });
 
     return btnContainer;
