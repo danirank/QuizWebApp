@@ -20,9 +20,7 @@ body {
   background-attachment: fixed;
 }
 
-#quiz-container {
-    margin-top: 10vh;
-}
+
 
 .question-text-container {
   display: flex;
@@ -44,11 +42,14 @@ body {
   justify-items: center;
   /* border: 2px solid black; */
     padding:1rem;
-    margin: 1rem;
-
+    
 
 }
-
+@media (min-width: 768px) {
+  .answers-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 
 
 .answer-btn {
@@ -65,7 +66,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 2rem;
+    margin-top: 1rem;
 
     background-color: blue;
    
